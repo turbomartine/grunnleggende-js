@@ -1,0 +1,983 @@
+<DOCTYPE html>
+<html lang="en">
+<head>
+
+</head>
+
+<body>
+    <script>
+
+// Exercise 1
+// Write a JavaScript program to display the current day
+// and time in the following format:
+// Sample Output: Today is: Tuesday.
+// Current time is: 10 PM : 30 : 38. 
+    console.log("Exercise 1")
+
+        const today = new Date()
+        const day = today.getDay()
+        const dayList = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+
+        console.log(`Today is : ${dayList[day]}.`)
+
+        const hour = today.getHours()
+        const minutes = today.getMinutes()
+        const seconds = today.getSeconds()
+        const pmAm = (hour >= 12) ? " PM " : " AM "
+        if (hour === 0 && pmAM === " PM ") {
+            if (minutes === 0 && seconds === 0) {
+                hour = 12
+                pmAm = ' Noon'
+            } else {
+                hour = 12
+                pmAm = " PM"
+            }
+        }
+        if (hour === 0 && pmAm === ' AM') {
+            if (minutes === 0 && seconds === 0) {
+                hour = 12
+                pmAM = ' Midnight'
+            } else {
+                hour = 12
+                pmAm = " AM"
+            }
+        }
+        console.log(`Current time is: ${hour} ${pmAm} : ${minutes} : ${seconds}.`)
+
+
+// Exercise 2
+// Write a JavaScript program to print the contents of the 
+// current window.
+console.log("Exercise 2")
+console.log("window.print()")
+
+// Exercise 3
+// Write a JavaScript program to get the current date
+// Expected Output:
+// dd/mm/yyyy
+console.log("Exercise 3")
+
+const todaysDate = new Date()
+let dd = todaysDate.getDate()
+let mm = todaysDate.getMonth() +1
+let yyyy = todaysDate.getFullYear()
+
+if( dd < 10) {
+    dd = '0' + dd
+}
+
+if( mm < 10) {
+    mm = '0' + mm
+} 
+
+console.log(`${dd}/${mm}/${yyyy}`)
+
+// Exercise 4
+// Write a JavaScript program to find the area of a triangle 
+// where lenghts of the three of its sides are 5, 6, 7. 
+console.log("Exersice 4")
+
+const exercise4 = ( a, b, c) => {
+    return (a + b + c) / 2
+}
+
+console.log(exercise4(5, 6, 7))
+
+
+// Exercise 5
+// Write a JavaScript program to rotate the string 'w3resourse'
+// in right direction by periodically removing one letter from
+// the end of the string and attaching it to the front.
+console.log("Exersice 5")
+
+let exercise5 = "Tobias Goulden Schultz"
+
+
+for (i = 0; i < exercise5.length; i++) {
+    let substracted = exercise5.substr(-1, 1)
+    console.log
+}
+console.log(exercise5)  
+
+
+// Exercise 6
+// Write a JavaScript program to determine whether a given year
+// is a leap year in the Gregorian calendar
+console.log("Exersice 6")
+
+const exercise6 = (year) => {
+    return year % 100 === 0 ? year % 400 === 0 : year % 4 === 0
+} 
+
+console.log(exercise6(2019))
+console.log(exercise6(2016))
+// Exercise 7
+// Write a JavaScript program to find 1st Janury is being a Sunday
+// between 2014 and 2050
+console.log("Exersice 7")
+
+for (let year = 2014; year <= 2050; year++) {
+    const d = new Date(year, 0, 1)
+    if (d.getDay() === 0 )
+    console.log(`1st January is being a Sunday ${year}`)
+}
+// Exercise 8
+// Write a JavaScript program where the program takes a random 
+// integer between 1 to 10, the user is then prompted to input a
+// guess number. If the user input matches with guess number, the
+// program will display a message "Good Work" otherwise display
+// a message "Not matched". 
+console.log("Exersice 8")
+
+const computerGuess = Math.floor(Math.random() * 10)
+
+const userGuess = (a) => {
+if (a === computerGuess) {
+    return 'Good Work'
+    } else {
+    return 'Not matched, the number was ' + computerGuess
+    }
+}
+
+console.log(userGuess(1))
+
+// Exercise 9
+// Write a JavaScript program to calculate days left until
+// next Christmas
+console.log("Exersice 9")
+
+const fullYear = 365
+const daysOfYear = new Date()
+const thisDay = daysOfYear.getDate()
+const thisMonth = daysOfYear.getMonth() + 1
+
+console.log(thisDay)
+console.log(thisMonth)
+
+// Exercise 10
+// Write a JavaScript program to calculate multiplication 
+// and division of two numbers (input from user)
+console.log("Exersice 10")
+
+const calculator = (a, b) => {
+    const multi = a * b;
+    const divi = a / b
+
+    return `The value of ${a} * ${b} is ${multi}. The value of ${a} / ${b} is ${divi}`
+}
+
+console.log(calculator(5,7))
+
+// Exercise 11
+// Write a JavaScript program to convert temperatures to 
+// and from Celcius, Fahrenheit. 
+console.log("Exersice 11")
+
+const temp = (celsius) => {
+    let cTemp = celsius
+    let cToFahr = cTemp * 9 / 5 + 32
+    return `${cTemp} °C is ${cToFahr} °F.`
+}
+
+console.log(temp(5))
+
+// Exercise 12
+// Write a JavaScript program to get the website
+// URL (loading page)
+console.log("Exersice 12")
+
+const currentLocation = window.location
+
+console.log(currentLocation)
+
+// Exersice 13
+// Write a JavaScript exercise to create a variable using
+// a user-defined name
+console.log("Exersice 13")
+
+const exercise13 = 'abcd'
+const n = 120
+this[exercise13] = n
+console.log(this[exercise13])
+// Exersice 14
+// Wtite a JavaScript exercise to get the extenison of
+// a filename
+console.log("Exersice 14")
+
+filename = 'system.php'
+console.log(filename.split('.').pop())
+
+
+// Exersice 15
+// Write a JavaScript program to get the difference between
+// a given number and 13, if the number is greater that 13
+// return double the absolute difference. 
+console.log("Exercise 15")
+
+const givenNumber = (a) => {
+    if (a > 13) {
+        return (a - 13) * 2
+    } else {
+        return "13 was bigger"
+    }
+}
+
+console.log(givenNumber(12))
+
+// Exersice 16
+// Write a JavaScript program to compute the sum of the two
+// given integers. If the two values are same, then returns
+// triple their sum. 
+console.log("Exersice 16")
+
+const givenNumbers = (a, b) => {
+    if (a === b) {
+        return a * 3
+    } else {
+        return a + b
+    }
+}
+
+console.log(givenNumbers(15, 5))
+
+// Exersice 17
+// Write a JavaScript program to compute the absolute difference
+// between a specified number and 19. Returns triple their
+// absolute difference if the spesified number is greater than 19.
+console.log("Exercise 17")
+
+const absoluteDifference = (a) => {
+    if (a < 19) {
+        return 19 - a
+    } if ( a > 19) {
+        if ((a - 19) >= 19) {
+            return (a - 19) * 3
+        } if ((a - 19) < 19) {
+            return a - 19
+        }
+    } else {
+        return "Something went wrong"
+    }
+}
+
+console.log(absoluteDifference(40))
+
+// Exersice 18 
+// Write a JavaScript program to check two given numbers 
+// and return true if one of the number is 50 or if theit sum is 50
+console.log("Exercise 18")
+
+const isItTrue = (a, b) => {
+    if (a + b === 50 || a === 50 || b === 50) {
+        return true
+    } else { 
+        return false
+    }
+}
+
+console.log(isItTrue(2, 30))
+
+// Exersice 19
+// Write a JavaScript program to check a given integer is
+// within 20 of 100 or 400. 
+console.log("Exercise 19")
+
+const testhundred = (x) => {
+    return ((Math.abs(100 - x) <= 20) || (Math.abs(400 - x) <= 20))
+}
+
+console.log(testhundred(85))
+// Exersice 20
+// Write a JavaScript program to check from two given integers,
+// if one is prositive and one is negative
+console.log("Exercise 20")
+
+const oneNegOnePos = (a, b) => {
+    if (a < 0 && b < 0) {
+        return false
+    } if ( a > 0 && b > 0) {
+        return false
+    } if ( a < 0 && b > 0) {
+        return true
+    } if ( a > 0 && b < 0) {
+        return true
+    } else {
+        return "Something went wrong"
+    }
+}
+
+console.log(oneNegOnePos(4,-5))
+
+// Exersice 21
+// Write a JavaScript program to createe a new string adding
+// "Py" in front of a given string. If the given strin g begins
+// with "Py" then return the original string. 
+console.log("Exercise 21")
+
+const isItPy = (a) => {
+    if (a === undefined || a.substring(0, 2) === "Py") {
+        return a
+    } else {
+        return "Py"+a
+    }
+}
+
+console.log(isItPy("Python"))
+console.log(isItPy("thon"))
+console.log(isItPy("Tobias"))
+
+// Exercise 22
+// Write a JavaScript program to remove a character at the
+// speecified position of a givene string and return the new
+// string. 
+console.log("Exercise 22")
+
+const sentance = "I love Tobias, and programming is going to be fun"
+
+console.log(sentance.slice(0,3) + sentance.slice(4))
+
+// Exersice 23
+// Write a JacaScript program to create a new string from a given
+// string changhing the position of first and last character. The
+// string lenght must be greater than or equal to 1. 
+console.log("Exercise 23")
+
+const exercise23 = (str1) => {
+    if (str1.length <= 1) {
+        return str1
+    }
+    mid_char = str1.substring(1, str1.length -1)
+    return (str1.charAt(str1.length - 1)) + mid_char + str1.charAt(0)
+}
+
+console.log(exercise23('hey there you'))
+// Exersice 24
+// Write a JavaScript program to create a new string from a given 
+// string with the first character of the given string added at the
+// front and back. 
+console.log("Exercise 24")
+
+const exercise24 = (str) => {
+    first = str.substring(0,1)
+    return first + str + first
+}
+
+console.log(exercise24("heyaa"))
+
+// Exersice 25
+// Write a JavaScript program chech if a given positive number is
+// a multiple of 3 or a multiple of 7.
+console.log("Exercise 25")
+
+const positiveNumber = (a) => {
+    if (a % 3 === 0 ) {
+        return true
+    } if (a % 7 === 0) {
+        return true
+    } else {
+        return false
+    }
+}
+
+console.log(positiveNumber(23))
+
+// Exersice 26
+// Write a JavaScript program to create a new string from a given
+// string taking the last 3 characters and added at both the front
+// and back. The string lenght must be 3 or more.
+console.log("Exercise 26")
+
+const exercise26 = (str) => {
+    if (str.length >= 3) {
+        str_len = 3
+        
+        back = str.substring(str.length - 3)
+        return back + str + back
+    } else {
+        return false
+    }
+}
+
+console.log(exercise26("heeyyaa"))
+// Exersice 27
+// Write a JavaScript program to check if a strin g starts with
+// "Java" and false otherwise. 
+console.log("Exercise 27")
+
+const exercise27 = (str) => {
+    if (str.length < 4) {
+        return false
+    } 
+    front = str.substring(0, 4)
+    if (front == 'Java') {
+        return true
+    } else {
+        return false
+    }
+}
+
+console.log(exercise27('Javahello'))
+console.log(exercise27('Tobias'))
+// Exersice 28
+// Write a JavaScript program to check if two integer values are
+// in the range 50..99 (inclusive). Return true if either of them 
+// are in the said range. 
+console.log("Exercise 28")
+
+const checkNumber = (a, b) => {
+    if (a >= 50 && a <= 99 || b >= 50 && b <= 99) {
+        return true
+    } else {
+        return false
+    }
+}
+
+console.log(checkNumber(4, 9))
+
+// Exercise 29
+// Write a JavaScript program to check if three given integer 
+// values are in the range 50..99 (inclusive). Return true if 
+// one or more of them are in the said range. 
+console.log("Exercise 29")
+
+const checkNumber2 = (a, b, c) => {
+    if (a >= 50 && a <= 99 || b >= 50 && b <= 99 || c >= 50 && c <= 99) {
+        return true
+    } else {
+        return false
+    }
+}
+
+console.log(checkNumber2(4, 9, 5))
+
+// Exercise 30
+// Write a JavaScript program to check in a string "Script" presents 
+// a 5th (index 4) position in a given string, if "Script" presents in
+// the string return the string Without "Script" otherwise return the
+// original one. 
+console.log("Exercise 30")
+
+// Exercise 31
+// Write a JavaScript program to find the largest of three given integers. 
+
+console.log("Exercise 31")
+
+const checkNumber3 = (a, b, c) => {
+   if (a > b && a > c) {
+       return a
+   } if (b > a && b > c) {
+       return b
+   } if (c > a && c > b) {
+       return c
+   } else {
+       return "Something went wrong"
+   }
+}
+
+console.log(checkNumber3(10, 11, 9))
+
+// Exercise 32
+// Write a JavaScript program to find a value which is nearest
+// to 100 from two different given integer values. 
+console.log("Exercise 32")
+
+const checkNumber4 = (a, b) => {
+    if (a < 100 && b < 100) {
+        if (a > b) {
+            return a
+        } if (b > a) {
+            return b
+        }
+    } if (a > 100 && b > 100) {
+        if (a < b) {
+            return a
+        } if (b < a) {
+            return b
+        }
+    } else {
+        return "Please fill in either over or under 100 on both numbers"
+    }
+}
+
+    console.log(checkNumber4(400, 500))
+
+// Exercise 33
+// Write a JavaScript program to check if two numbers
+// are in range 40..60 or in the range 70..100 inclusive
+console.log("Exercise 33")
+
+const exercise33 = (a, b) => {
+    if ( a >= 70 && a <= 100 || a >= 40 && a <= 60 && b >= 70 && b <= 100 || b >= 40 && b <= 60) {
+        return `Both ${a} and ${b} is between 40..60 and 70..100`
+    } else {
+        return `One or both numbers are not within 40..60 or 70..100`
+    }
+}
+
+console.log(exercise33(70, 88))
+
+
+// Exercise 34
+// Write a JavaScript program to find the larer number
+// from the two given positive integers, the two numbers
+// are in the range 40..60 inclusive.
+console.log("Exercise 34")
+
+const exercise34 = (a, b) => {
+if (a >= 40 && a <= 60 && b >= 40 && b <= 60) {
+    if (a > b) {
+        return a
+    } if (b > a) {
+        return b
+    }
+} else {
+    return "Your numbers is not between 40 and 60"
+}
+}
+
+console.log(exercise34(46, 55))
+
+// Exercise 35
+// Write a JavaScript program to check a given string
+// contains 2 to 4 numbers of a specified character.
+console.log("Exercise 35")
+
+const exercise35 = (str, char) => {
+    ctr = 0;
+    for (let i = 0; i < str.length; i++) {
+        if (str.charAt(i) == char) {
+            ctr++
+        }
+    }
+    return (ctr >= 2 && ctr <= 4)
+}
+
+console.log(exercise35("HællæBællæ", "æ"))
+// Exercise 36
+// Write a JavaScript program to check if the last digit
+// of the three given positive integers is same. 
+console.log("Exercise 36")
+
+const exercise36 = (a, b, c) => {
+    if (a > 0 && b > 0 && c > 0) {
+        if (a % 10 === b % 10 && b % 10 === c % 10) {
+            return true
+        } 
+    }
+}
+
+console.log(exercise36(50, 60, 10))
+
+// Exercise 37
+// Write a JavaScript program to create new string with
+// first 3 characters are in lower case. If the string 
+// lenght is less than 3 convert all the characters in 
+// upper case.
+console.log("Exercise 37")
+
+const exercise37 = (str) => {
+    if (str.length <= 3) {
+        return str.toUpperCase()
+    } 
+    front_part = (str.substring(0, 3)).toLowerCase()
+    back_part = str.substring(3, str.length)
+    return front_part + back_part
+}
+
+console.log(exercise37("FHFGXDhdtDGXF"))
+
+// Exercise 38
+// Write a JavaScript program to check the total marks of
+// a student in various examinations. The student will get
+// A+ grade if the total marks are in the range 89..100
+// inclusive, if the examination is "Final-exam." the student
+// will get A+ grade and total marks must be greater than or
+// equal to 90. Return true if the studeent get A+ grade or false
+// otherwise. 
+console.log("Exercise 38")
+const exercise38 = (total, final) => {
+    if (total >= 89) {
+        if (final >= 90) {
+            return "A+"
+        }  
+    } else {
+        return false
+    }
+}
+
+console.log(exercise38(85, 95))
+
+// Exercise 39
+// Write a JavaScript program to compute the sum of two
+// given integers, if the sum is in the range 50..80 
+// return 65 other wise return 80. 
+console.log("Exdecise 39")
+const exercise39 = (a, b) => {
+    if ((a + b) >= 50 && (a + b) <= 80) {
+        return 65
+    } else {
+        return 80
+    }
+}
+
+console.log(exercise39(50, 50)) 
+
+// Exercise 40
+// Write a JavaScript program to check from two given
+// integers if either one is 8 or their sum or difference
+// is 8. 
+console.log("Exercise 40")
+
+const exercise40 = (a, b) => {
+    if (a === 8 || b === 8) {
+        return true
+    } if ((a - b) === 8) {
+        return true
+    } if ((a + b) === 8) {
+        return true
+    } else {
+        return false
+    } 
+}
+console.log(exercise40(8, 8))
+
+// Exercise 41
+// Write a JavaScript program to check three given numbers,
+// if the three numbers are same return 30 otherwise return
+// 40 and if two numbers are same return 20.
+console.log("Exercise 41")
+
+const exercise41 = (a, b, c) => {
+    if ( a === b && a === c && c === b) {
+        return 30
+    } if ( a === b || a === c || b === c) {
+        return 20
+    } else {
+        return 40
+    }
+}
+
+console.log(exercise41(10, 40, 50))
+
+// Exercise 42
+// Write a JavaScript program to check if three given numbers
+// (integers) are increasing in strict mode and flag is "false",
+// however, if "true" is false the numbers will in soft mode. 
+console.log("Exercise 42") 
+
+const exercise42 = (a, b, c) => {
+    if (a < b && b < c) {
+        return "true in Strict Mode"
+    } if (a <= b && b <= c) {
+        return "true in Soft Mode"
+    } else {
+        return false
+    }
+}
+
+console.log(exercise42(20, 10, 20))
+
+// Exercise 43
+// Write a JavaScript program to check from three
+// given numbers (non negative integers) that two or
+// all of them have the same rightmost digit. 
+console.log("Exercise 43")
+
+const exercise43 = (a, b, c) => {
+    return (a % 10 === b % 10) || (a % 10 === c % 10) || (b % 10 === c % 10)
+}
+
+console.log(exercise43(43, 64, 74))
+// Exercise 44
+// Write a JavaScript program to check from three given
+// integers that if a number is greater than or equal to
+// 20 and less than one of the others.
+console.log("Exercise 44")
+
+const exercise44 = (a, b, c) => {
+    if (a >= 20 && a < b && a < c) {
+        return true
+    } if (b >= 20 && b < a && b < c) {
+        return true
+    } if (c >= 20 && c < a && c < b) {
+        return true
+    } else {
+        return false
+    }
+}
+
+console.log(exercise44(1, 2, 3))
+// Exercise 45
+// Write a JavaScript program to check two given integer
+// values and return true if one of the number is 15 or if
+// their sum or difference is 15. 
+console.log("Exercise 45")
+
+const exercise45 = (a, b) => {
+    if (a === 15 || b === 15) {
+        return true
+    } if ((a + b) === 15) {
+        return true
+    } if ((a - b) === 15) {
+        return true
+    } else {
+        return false
+    }
+}
+
+console.log(exercise45(30, 15))
+
+// Exercise 46
+// Write a JavaScript program to check two given non-negative
+// integers and if one of the number (not both) is multiple of
+// 7 or 11
+console.log("Exercise 46")
+
+const exercise46 = (a, b) => {
+   if (!((a % 7 === 0 || a % 11 === 0) && (b % 7 === 0 || b % 11 === 0))) {
+       return ((a % 7 === 0 || a % 11 === 0) || (b % 7 === 0 || b % 11 === 0))
+   } else {
+       return false
+   }
+}
+
+console.log(exercise46(14, 20))
+
+// Exercise 47
+// Write a JavaScript program to check if a number in the range
+// 40..10000 inclusive presents in two number(in same range). 
+console.log("Exercise 47")
+
+let count = 0
+
+for (let i = 40; i < 10000; i++ ) {
+    if (String(i).includes("40")) count++
+}
+
+console.log(count)
+
+//Exercise 48
+// Write a JavaScript program to reverse a given string.
+console.log("Exercise 48")
+function reverseString(str) {
+    let stringRev = ""
+    for (let i = 0; i < str.length; i++) {
+    stringRev = str[i] + stringRev;
+    }
+return stringRev;
+}
+
+console.log(reverseString("Hello World"))
+// Exercise 49
+// Write a Javascript program to replace every character in 
+// a given string with the character following it in the alphabet.
+console.log("Exercise 49")
+
+
+//Exercise 50
+// Write a JavaScript program to capitalize the first letter of each
+//word of a given string. 
+console.log("Exercise 50")
+
+const exercise50 = (str) => {
+    str = str.split(" ")
+
+    for (let i = 0, x = str.length; i < x; i++) {
+        str[i] = str[i][0].toUpperCase() + str[i].substr(1)
+    }
+    return str.join(" ")
+}
+
+console.log(exercise50("Hey there, how are you doing?"))
+
+// Exercise 51
+// Write a JavaScript program to convert a given number to hours and
+// minutes. 
+console.log("Exercise 51")
+const exercise51 = (num) => {
+    const hours = Math.floor(num / 60)
+    const minutes = num % 60
+    return `${hours}:${minutes}`
+}
+
+console.log(exercise51(536))
+
+// Exercise 52
+// Write a JavaScript program to convert the letters of a given
+// in alphabetical order.
+console.log("Exercise 52")
+
+const exercise52 = (str) => {
+    return str.split("").sort().join("")
+}
+
+console.log(exercise52("heya this is a bit fun"))
+
+// Exercise 53 
+// Write a JavaScript program to check if the characters a and b
+// are separated by exactly 3 places anywhere (at least once) in 
+// a given string. 
+console.log("Exercise 53")
+
+const exercise53 = (str) => {
+    return (/a...b/).test(str) || (/b...a/).test(str)
+}
+
+console.log(exercise53("Chainsbreak"))
+// Exercise 54
+// Write a JavaScript program to count the number of vowels in a
+// given string. 
+console.log("Exercise 54")
+
+const exercise54 = (str) => {
+    return str.replace(/[^aeiou]/g, "").length
+}
+
+console.log(exercise54("Tobias og Martine"))
+
+// Exercise 55
+// Write a JavaScript program to check if a given string
+// contains equal number of p´s and t´s present.
+console.log("Exercise 55")
+
+const exercise55 = (str) => {
+    let strPs = str.replace(/[^p]/g, "")
+    let strTs = str.replace(/[^t]/g, "")
+    let p_num = strPs.length
+    let t_num = strTs.length
+        return p_num === t_num
+}
+
+console.log(exercise55("Heyapgdptgft"))
+
+// Exercise 56
+// Write a JavaScript program to divide two positive numbers
+// and return a string with property formatted commas. 
+console.log("Exercise 56")
+
+// Exercise 57
+// Write a JavaScript program to create a new string of specified
+// copies (positive number) of a given string.
+
+console.log("Exercise 57")
+
+const exercise57 = (str, n) => {
+    if (n < 0) {
+        return false
+    } else {
+        return str.repeat(n)
+    }
+}
+
+console.log(exercise57("Tobias", 5))
+
+// Exercise 58
+// Write a JavaScript program to create a new string of
+// 4 copies of the last 3 characters of a given original 
+// string. The length of the given string must be 3 and
+// above
+console.log("Exercise 58")
+
+const exercise58 = (str) => {
+    if (str.length >= 3) {
+        copiedStr = str.substring(str.length - 3)
+        return copiedStr + copiedStr + copiedStr + copiedStr
+    } else {
+        return false
+    }
+}
+
+console.log(exercise58("Heyanbaf"))
+
+// Exercise 59 
+// Write a JavaScript program to extract the first half
+// of a string of even length. 
+
+/*
+ 1. gjør tallet 1521 til en string
+ */
+
+let task1 = 1521 
+
+console.log(String(task1))
+/*
+ 2. gjør tallet 1 til en boolean 
+*/
+let task2 = 1
+
+console.log(Boolean(task2))
+/*
+ 3. gjør tallet 0 til en boolean
+
+*/
+let task3 = 0
+
+console.log(Boolean(task3))
+/*
+ 4. gjør stringen "0123" til et nummer
+ */
+let task4 = "0123"
+
+console.log(Number(task4))
+ /*
+ 5. gjør stringen "hei 456" til et nummer..?
+ */
+let task5 = "hei 456"
+let number = ""
+for (let i = 0; i < task5.length; i++) {
+    if (Number(task5[i])) {
+        number += task5[i]
+    }
+}
+console.log(number)
+
+ /*
+ 6. pluss sammen strengen "20" med tallet 20 med strengen "30". Resultatet skal bli 70
+ */
+
+ let firstStringNumber = Number("20")
+ let secondStringNumber = Number("30")
+
+ console.log(firstStringNumber + secondStringNumber + 20)
+
+/*
+ 7. Konverter en boolean false til en string "false"
+ */
+let task7 = String(false)
+
+console.log(task7)
+/*
+ 8. konverter en boolean true til en string "true"
+ */
+
+ let task8 = String(true)
+
+ console.log(task8)
+/*
+ 9. konverter en boolean true til en string "false"...? hint: flipp den
+*/
+let task9 = true
+let task9Function = () => {
+    if (task9) {
+    return task9 = String(false)
+    } 
+}
+
+console.log(task9Function())
+
+ /*
+ 10. gjør en boolean true til et tall 1 til en string "1"
+ */
+let task10 = true
+
+const task10Function = () => {
+    if (task10) {
+     task10 = 1
+     return String(task10)
+    }
+}
+console.log(task10Function())
+    </script>
+</body>
+
+</html>
