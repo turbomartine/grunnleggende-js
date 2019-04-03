@@ -892,7 +892,45 @@ console.log(exercise58("Heyanbaf"))
 // Exercise 59 
 // Write a JavaScript program to extract the first half
 // of a string of even length. 
+console.log("Exercise 59")
 
+const exercise59 = (str) => {
+  if (str.length % 2 === 0) {
+    return str.slice(0, str.length / 2)
+  }
+  return str
+}
+
+console.log(exercise59("Tobias"))
+
+// Exercise 60
+// Write a JavaScript program to create a new string without
+// the first and last character of a given string.
+console.log("Exercise 60")
+
+const exercise60 = (str) => {
+  return str.substring(1, str.length - 1)
+}
+
+console.log(exercise60("Tobias"))
+console.log(exercise60("Martine"))
+console.log(exercise60("Vilde"))
+console.log(exercise60("Turid"))
+console.log(exercise60("Trond"))
+
+// Exercise 61
+// Write a JavaScript program to concatenate two strings except
+// their first character. 
+console.log("Exercise 61")
+
+const exercise61 = (str1, str2) => {
+  str1 = str1.substring(1, str1.length)
+  str2 = str2.substring(1, str2.length)
+
+  return str1 + str2
+}
+
+console.log(exercise61("tobias", "martine"))
 /*
  1. gjør tallet 1521 til en string
  */
