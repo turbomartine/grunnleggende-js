@@ -457,6 +457,21 @@ console.log(checkNumber2(4, 9, 5))
 // original one. 
 console.log("Exercise 30")
 
+const exercise30 = (str) => {
+  if (str.length < 6) {
+    return str
+  } 
+  let result_str = str
+
+  if ( str.substring(10, 4) === 'Script') {
+    result_str = str.substring(0, 4) + str.substring(10, str.length)
+  }
+  return result_str
+}
+
+console.log(exercise30("JavaScript"))
+console.log(exercise30("CoffeeScript"))
+
 // Exercise 31
 // Write a JavaScript program to find the largest of three given integers. 
 
@@ -773,6 +788,31 @@ console.log(reverseString("Hello World"))
 // a given string with the character following it in the alphabet.
 console.log("Exercise 49")
 
+const exercise49 = (str) => {
+  let s = str.split('')
+  for (let i = 0; i < s.length; i++) {
+    switch(s[i]) {
+      case '':
+      break
+      case 'z':
+      s[i] = 'a'
+      break
+      case 'Z':
+      s[i] = 'A'
+      break
+      default:
+      s[i] = String.fromCharCode(1 + s[i].charCodeAt(0))
+    }
+
+    switch(s[i]) {
+      case 'a' : case 'e' : case 'i': case 'o': case 'u':
+      s[i] = s[i].toUpperCase()
+    }
+  }
+  return s.join('')
+}
+
+console.log(exercise49('PYTHON'))
 
 //Exercise 50
 // Write a JavaScript program to capitalize the first letter of each
@@ -854,6 +894,7 @@ console.log(exercise55("Heyapgdptgft"))
 // Write a JavaScript program to divide two positive numbers
 // and return a string with property formatted commas. 
 console.log("Exercise 56")
+
 
 // Exercise 57
 // Write a JavaScript program to create a new string of specified
@@ -1101,16 +1142,141 @@ console.log(exercise72([4, 7, 5, 4]))
 // Write a JavaScript program to reverse the elements of a given array
 // of integers length 3. 
 console.log("Exercise 73")
+
+const exercise73 = (array) => {
+  return array.map((element, idx, arr) => arr[(arr.length - 1) - idx])
+}
+
+console.log(exercise73([5, 6, 3]))
 // Exercise 74
 // Write a JavaScript program to find the larger value between the first
 // or last and set all the other elements with that value. Display the new
 // array.
 console.log("Exercise 74")
+
+const exercise74 = (nums) => {
+  const max_val = nums[0] > nums[2] ? nums[0] : nums[2]
+
+  nums[0] = max_val
+  nums[1] = max_val
+  nums[2] = max_val
+
+  return nums
+}
+
+console.log(exercise74([20, 30, 40]))
 // Exercise 75
 // Write a JavaScript program to create a new array taking the middle elements
 // of the two arrays of integers and each length 3. 
 console.log("Exercise 75")
 
+const exercise75 = (a, b) => {
+  const new_array = []
+  new_array.push(a[1], b[1])
+
+  return new_array
+}
+
+console.log(exercise75([1, 5, 3], [5, 3, 6]))
+
+// Exercise 76
+// Write a JavaScript program to create a new array taking the first and last
+// elements from a given array of integers and length must be greater or equal
+// to 1.
+console.log("Exercise 76")
+
+const exercise76 = (nums) => {
+  const array1 = []
+  array1.push(nums[0], nums[nums.length - 1])
+
+  return array1
+}
+
+console.log(exercise76([40, 20, 30]))
+
+// Exercise 77
+// Write a JavaScript program to test if an array of integers of length 2 contains
+// 1 or a 3.
+console.log("Exercise 77")
+
+const exercise77 = (nums) => {
+  if (nums.includes(1) || nums.includes(3)) {
+    return true
+  } else {
+    return false
+  }
+}
+
+console.log(exercise77([5, 8, 3, 1]))
+// Exercise 78
+// Write a JavaScript program to test if an array or integers of length 2 does not 
+// contain 1 or a 3.
+console.log("Exercise 78")
+const exercise78 = (nums) => {
+  if (!nums.includes(1) && !nums.includes(3)) {
+    return true
+  } else {
+    return false
+  }
+}
+
+console.log(exercise78([7, 4]))
+// Exercise 79
+// Write a JavaScript program to test if a given array of integers contains 30 or 40
+// twice. The array length sould be 0, 1, or 2. 
+console.log("Exercise 79")
+
+const exercise79 = (arr1) => {
+  let a = arr1[0]
+  let b = arr1[1]
+  return (a === 30 && b === 30) || (a === 40 && b === 40)
+}
+
+console.log(exercise79([30, 30]))
+console.log(exercise79([4, 40]))
+
+// Exercise 80
+// Write a JavaScript program to swap the first and last elements of a given array of
+// integers. The array length should be at least 1.
+console.log('Exercise 80')
+
+const exercise80 = (arra) => {
+  [arra[0], arra[arra.length -1]] = [arra[arra.length - 1], arra[0]]
+  return arra
+}
+
+console.log(exercise80([1, 2, 3, 4]))
+console.log(exercise80([3, 2, 1]))
+
+// Exercise 81
+// Write a JavaScript program to add two digits of a given positive integer of length
+// two. 
+console.log('Exercise 81')
+
+const exercise81 = (n) => {
+  return (n % 10) + (Math.floor(n / 10))
+}
+
+console.log(exercise81(55))
+
+// Exercise 82
+// Write a JavaScript program to add two positive integers without
+// carry.
+
+
+// Exercise 83
+// Write a JavaScript to find the longest string from a given array of strings.
+console.log('Exercise 83')
+
+const exercise83 = (arr) => {
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i].length > (arr[i].length + 1)) {
+      return arr[i]
+    }
+  }
+}
+
+console.log(exercise83(['Tobia', 'Martine', 'Trond', 'Turid', 'Lars']))
 /*
  1. gjør tallet 1521 til en string
  */
