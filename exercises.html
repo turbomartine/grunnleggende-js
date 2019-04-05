@@ -1267,16 +1267,189 @@ console.log(exercise81(55))
 // Exercise 83
 // Write a JavaScript to find the longest string from a given array of strings.
 console.log('Exercise 83')
+let people = ['Tobia', 'Martine', 'Trond', 'Turid', 'Lars']
 
-const exercise83 = (arr) => {
-  for (let i = 0; i < arr.length; i++) {
-    if (arr[i].length > (arr[i].length + 1)) {
-      return arr[i]
-    }
+console.log(`origin array: ${people}`)
+
+people.sort((personA, personB) => {
+  const aLength = personA.length
+  const bLength = personB.length
+
+  if (aLength > bLength) return -1 // move up
+  else if (aLength === bLength) return 0 // stay in place
+  else return 1 // move down
+})
+
+console.log(`sorted array: ${people}`)
+console.log(`longest name: ${people[0]}`)
+
+
+// Exercise 84
+// Write a JavaScript program to replace each character of a given string
+// by the next one in the English alphabet
+console.log('Exercise 84')
+
+const exercise84 = (str) => {
+  const all_char = str.split("")
+  for (let i = 0; i < all_char.length; i++) {
+    let n = all_char[i].charCodeAt() - 'a'.charCodeAt()
+    n = (n +1) % 26
+    all_char[i] = String.fromCharCode(n + 'a'.charCodeAt())
   }
+  return all_char.join('')
 }
 
-console.log(exercise83(['Tobia', 'Martine', 'Trond', 'Turid', 'Lars']))
+console.log(exercise84('Tobias'))
+//filter, map, reduce
+// Exercise 85
+// Write a JavaScript code to divide an given array of positive 
+// integers into two parts. First element goes to first part, 
+// second element goes to second part, and third element goes to 
+// first part and so on. Now compute the sum of two parts and store
+// into an array of size two. 
+console.log('Exercise 85')
+
+const exercise85 = (arr) => {
+  const result = [0, 0]
+  for (let i = 0; i < arr.length; i++) {
+    if(i % 2) result[1] += arr[i]
+    else result[0] += arr[i]
+  }
+  return result
+}
+
+console.log(exercise85([1, 2, 3, 4, 5, 6]))
+
+// Exercise 86
+// Write a JavaScript program to fine the types of a given angle
+console.log("Exercise 86")
+
+const exercise86 = (angle) => {
+  if (angle < 90) {
+    return "Acute angle."
+  } else if (angle === 90) {
+    return "Right angle"
+  } else if (angle < 180) {
+    return "Obtuse angle."
+  } 
+  return "Straight angle."
+}
+
+console.log(exercise86(47))
+console.log(exercise86(90))
+console.log(exercise86(145))
+console.log(exercise86(180))
+// Exercise 87
+// Write a JavaScript program to check whether two arrays of integers
+// of same length are similar or not. The arrays will be similar if one
+// array can be obtained from another array by swapping at most one pair
+// of elements. 
+console.log("Exercise 87")
+
+const exercise87 = (arr1, arr2) => {
+  for (let i = 0; i < arr1.length; i++) {
+    for (let j = i; j < arr1.length; j++) {
+      let result = true
+      const temp = arr1[i]
+      arr1[i] = arr1[j]
+      arr1[j] = temp
+      for(let k = 0; k < arr1.length; k++) {
+        if(arr1[k] !== arr2[k]) {
+          result = false
+          break;
+        }
+      }
+      if(result) {
+        return true
+      }
+      arr1[j] = arr1[i]
+      arr[i] = temp
+    }
+  }
+  return false
+}
+
+console.log(exercise87([10, 20, 30], [10, 20, 30]))
+
+// Exercise 88
+// Write a JavaScript program to check whether two given integers
+// are similar or not, if a given divisor divides both integers and 
+// it does not divide either.
+console.log("Exercise 88")
+
+const exercise88 = (x, y, divisor) => {
+  if (x % divisor === 0 && y % divisor === 0 || x % divison !== 0 && y % divisor !== 0) {
+    return true
+  }
+  return false
+}
+
+console.log(exercise88(10, 25, 5))
+
+// Exercise 89
+// Write a JavaScript program to check whether it is possible to replace $
+// in a given expression x $ y = z with one of the four signs +, -, * or / 
+// to obtain a correct expression.
+// For example x = 10, y = 30 and z = 300, we can replace $ with a multiple
+// operator (*) to obtain x * y = z
+console.log("Exercise 89")
+
+const exercise89 = (x, y, z) => {
+  return x + y === z || x * y === z || x / y === z || x - y === z
+}
+
+console.log(exercise89(10, 25, 35))
+console.log(exercise89(10, 25, 250))
+
+// Exercise 90
+// Write a JavaScript program to find the kth greatest element of a given 
+// array of integers. 
+console.log("Exercise 90")
+
+const exercise90 = (arr, k) => {
+  for (let i = 0; i < k; i++) {
+    let max_index = i
+    const tmp = arr[i]
+
+    for (let j = i + 1; j < arr.length; j++) {
+      if (arr[j] > arr[max_index]) {
+        max_index = j
+      }
+    }
+
+    arr[i] = arr[max_index]
+    arr[max_index] = tmp
+  }
+  return arr[k -1]
+}
+
+console.log(exercise90([1, 2, 3, 4, 5], 3))
+console.log(exercise90([-10, -25, -47, -36, 0], 1))
+
+// Exercise 91
+// Write a JavaScript program to find the maximum possible sum of some
+// of its k consecutive numbers (numbers that follow each other in order.)
+// of a given array of positive integers.
+console.log('Exercise 91')
+
+const exercise91 = (nums, k) => {
+  let result = 0
+  let temp_sum = 0
+  for (let i = 0; i < k -1; i++) {
+    temp_sum += nums[i]
+  }
+  for (let i = k -1; i < nums.length; i++) {
+    temp_sum += nums[i]
+    if ( temp_sum > result) {
+      result = temp_sum
+    }
+    temp_sum -= nums[i - k +1] 
+  }
+  return result
+}
+
+console.log(exercise91([1, 2, 3, 14, 5], 2))
+
 /*
  1. gjør tallet 1521 til en string
  */
