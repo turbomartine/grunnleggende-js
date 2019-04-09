@@ -1569,6 +1569,159 @@ const exercise97 = (new_str) => {
 }
 
 console.log(exercise97("abcddc"))
+
+// Exercise 98
+// Write a JavaScript program to switch case of the minimum possible
+// numbers of letters to make a given string wirtten in the upper case
+// or in the lower case.
+console.log("Exercise 98")
+
+const exercise98 = (new_str) => {
+  let x = 0
+  let y = 0
+
+  for(let i = 0; i < new_str.length; i++) {
+    if (/[A-Z]/.test(new_str[i])) {
+      x++
+    } else y++
+  }
+
+  if (y > x) return new_str.toLowerCase()
+  return new_str.toUpperCase()
+}
+
+console.log(exercise98("Tobias"))
+console.log(exercise98("WiFI"))
+
+// Exercise 99
+// Write a JavaScript program to check whether it is possible to 
+// rearrange characters of a given string in such way that it will 
+// become equal to another given string.
+console.log("Exercise 99")
+
+const exercise99 = (str1, str2) => {
+  const first_set = str1.split('')
+  const second_set = str2.split('')
+  let result = true
+
+  first_set.sort()
+  second_set.sort()
+
+  for (let i = 0; i < Math.max(first_set.length, second_set.length); i++) {
+    if (first_set[i] !== second_set[i]) {
+      result = false
+    }
+  }
+
+  return result
+}
+
+console.log(exercise99("xyz", "zyx"))
+
+// Exercise 100
+// Write a JavaScript program to check if there is at least one element
+// which occurs in two given sorted arrays of integers.
+console.log("Exercise 100")
+
+const exercise100 = (arra1, arra2) => {
+  for (let i = 0; i < arra1.length; i++) {
+    if (arra2.includes(arra1[i])) return true
+  }
+  return false
+}
+
+console.log(exercise100([1, 2, 3], [3, 4, 5]))
+
+// Exercise 101
+// Write a JavaScript program to check whether a given string
+// contains only Latin letters and no two uppercase and no two
+// lowercase letters are in adjacent positions.
+console.log("Exercise 101")
+
+const exercise101 = (input_str) => {
+  const is_lower_case = symbol => {
+    if ('a' <= symbol && symbol <= 'z') {
+      return true
+    }
+    return false
+  }
+
+  const is_upper_case = symbol => {
+    if ('A' <= symbol && symbol <= 'Z') {
+      return true
+    }
+    return false
+  }
+  const is_first_char_lower = is_lower_case(input_str[0])
+  const is_first_char_upper = is_upper_case(input_str[0])
+
+  if (!(is_first_char_lower || is_first_char_upper)) {
+    return false
+  }
+
+  for (let i = 1; i < input_str.length; i++) {
+    if (i % 2) {
+      if (is_lower_case(input_str[i]) === is_first_char_lower || 
+      is_upper_case(input_str[i]) === is_first_char_upper) {
+        return false
+      }
+    } else {
+      if (is_lower_case(input_str[i]) !== is_first_char_lower ||
+      is_upper_case(input_str[i]) !== is_first_char_upper) {
+        return false
+      }
+    }
+  }
+  return true
+}
+
+console.log(exercise101("xYr"))
+
+// Exercise 102
+// Write a JavaScript program to find the number of inversions of a
+// given array of integers.
+console.log("Exerecise 102")
+
+const exercise102 = (arr) => {
+  let ctr = 0
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = i +1; j < arr.length; j++) {
+      if (arr[i] > arr[j])
+        ctr++
+    }
+  }
+  return ctr
+}
+
+console.log(exercise102([0, 1, 2, 3, 4, 9]))
+
+// Exercise 103
+// Write a JavaScript program to find the maximal number from a 
+// gicen positive integer by deleting exactly one digit of the 
+// given number. 
+console.log("Exercise 103")
+
+const exercise103 = (num) => {
+  let result = 0
+  const num_digits = []
+  while (num) {
+    num_digits.push(num % 10)
+    num = Math.floor(num / 10)
+  }
+  for (let index_num = 0; index_num < num_digits.length; index_num++) {
+    let n = 0
+    for (let i = num_digits.length - 1; i >= 0; i--) {
+      if (i !== index_num) {
+        n = n * 10 + num_digits[i]
+      }
+    }
+    result = Math.max(n, result)
+  }
+  return result
+}
+
+console.log(exercise103(4530))
+
 /*
  1. gjør tallet 1521 til en string
  */
